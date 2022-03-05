@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class TableTest {
     WebDriver wd;
 
-    
+
     @Test
     public void Homework() {
         wd = new ChromeDriver();
