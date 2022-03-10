@@ -10,25 +10,28 @@ import java.util.List;
 
 public class PhoneBookTests {
     WebDriver wd;
-    @BeforeMethod
-    public void openSite (){
-    wd = new ChromeDriver();
-    wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/login");
-    wd.manage().window().maximize();
+
+    //@BeforeMethod
+    public void openSite() {
+        wd = new ChromeDriver();
+        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/login");
+        wd.manage().window().maximize();
 
     }
-    @Test
-    public void phoneBookstart(){
 
-    //WebElement element = wd.findElement(By.linkText("HOME"));
-    //element.click();
-    //WebElement element1 = wd.findElement(By.partialLinkText("AB"));
-    //element1.click();
+    @Test
+    public void phoneBookstart() {
+
+        //WebElement element = wd.findElement(By.linkText("HOME"));
+        //element.click();
+        //WebElement element1 = wd.findElement(By.partialLinkText("AB"));
+        //element1.click();
 
 
     }
+
     @Test
-    public void home(){
+    public void home() {
         wd = new ChromeDriver();
         wd.navigate().to(" https://contacts-app.tobbymarshall815.vercel.app/login");
         wd.manage().window().maximize();
@@ -63,29 +66,42 @@ public class PhoneBookTests {
 
 
     @Test
-    public void cssLocatorTest(){
+    public void cssLocatorTest() {
         wd = new ChromeDriver();
         wd.navigate().to(" https://contacts-app.tobbymarshall815.vercel.app/login");
         wd.manage().window().maximize();
-
-        wd.findElement(By.cssSelector(""));
-        // by tag name
+        //By tag name
         wd.findElement(By.cssSelector("div"));
-        wd.findElement(By.cssSelector("a"));
-        // by class
+        wd.findElement(By.xpath("//div"));
+        //by class
         wd.findElement(By.cssSelector(".login_login__3EHKB"));
-        // by id
+        wd.findElement(By.xpath("//*[@class='login_login__3EHKB']"));
+        //by id
         wd.findElement(By.cssSelector("#root"));
-        // атрибут
+        wd.findElement(By.xpath("//*[@id='root']"));
+        //by atribute
         wd.findElement(By.cssSelector("[placeholder]"));
+        wd.findElement(By.xpath("//*[@placeholder]"));
+
         wd.findElement(By.cssSelector("[placeholder='Password']"));
-        wd.findElement(By.cssSelector("[placeholder *='ss']"));
+        wd.findElement(By.xpath("//*[@placeholder='Password']"));
+        //contains
+        wd.findElement(By.cssSelector("[placeholder *='sw']"));
+        wd.findElement(By.xpath("//*[contains(@placeholder,'sw')]"));
+        //begin with
         wd.findElement(By.cssSelector("[placeholder ^='Pa']"));
+
+        //end with
         wd.findElement(By.cssSelector("[placeholder $='rd']"));
 
+        //By Text
+        wd.findElement(By.xpath("//button[text()= ' Login']"));
+        wd.findElement(By.xpath("//button[text()= ' Registration']"));
     }
+
     @AfterMethod
-    public void close(){
+    public void close() {
+        wd.close();
 
     }
 
