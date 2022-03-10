@@ -29,6 +29,7 @@ public class TableTest {
         WebElement fill2 = wd.findElement(By.xpath("//*[@placeholder = 'Type your surename']"));
 
         //Table
+
         //Europe
         WebElement tableEL1 = wd.findElement(By.xpath("//*[text() = 'Europe']"));
         Assert.assertEquals(tableEL1.getText(), "Europe");
